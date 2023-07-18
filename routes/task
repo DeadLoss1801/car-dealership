@@ -1,0 +1,85 @@
+Implement admin, user, and dealership authentication using JWT:
+You can use the 
+jsonwebtoken
+ library to generate and verify JWT tokens.
+For admin authentication, you can create a separate endpoint for logging in as an admin and generate a JWT token for that user.
+For user and dealership authentication, you can use a common endpoint for logging in and generate a JWT token for that user.
+You can store the JWT token in a cookie or in the 
+Authorization
+ header of the HTTP request.
+You can use a middleware function to verify the JWT token for each protected endpoint and reject the request if the token is invalid or expired.
+Implement a mechanism to invalidate JWT:
+You can store the expiration time of the JWT token in the token itself.
+You can periodically check the expiration time of all JWT tokens and invalidate them if necessary.
+You can also add a logout endpoint that invalidates the JWT token for the current user.
+Create REST endpoints for user:
+To view all cars:
+GET 
+/api/cars
+This endpoint should return a list of all cars in the database.
+To view all cars in a dealership:
+GET 
+/api/cars?dealership={dealershipId}
+This endpoint should return a list of all cars in the specified dealership.
+To view dealerships with a certain car:
+GET 
+/api/cars/{carId}/dealerships
+This endpoint should return a list of all dealerships that have the specified car.
+To view all vehicles owned by user:
+GET 
+/api/users/{userId}/vehicles
+This endpoint should return a list of all vehicles owned by the specified user.
+To view the dealerships within a certain range based on user location:
+GET 
+/api/users/{userId}/dealerships?distance={distance}
+This endpoint should return a list of all dealerships within the specified distance of the user's location.
+You can use the Google Maps API to get the user's location and calculate the distance between two locations.
+To view all deals on a certain car:
+GET 
+/api/cars/{carId}/deals
+This endpoint should return a list of all deals on the specified car.
+To view all deals from a certain dealership:
+GET 
+/api/dealerships/{dealershipId}/deals
+This endpoint should return a list of all deals from the specified dealership.
+To allow user to buy a car after a deal is made:
+POST 
+/api/deals/{dealId}/buy
+This endpoint should update the deal with the specified ID to reflect that the car has been bought.
+Create REST endpoints for dealership:
+To view all cars:
+GET 
+/api/cars
+This endpoint should return a list of all cars in the database.
+To view all cars sold by dealership:
+GET 
+/api/dealerships/{dealershipId}/cars
+This endpoint should return a list of all cars sold by the specified dealership.
+To add cars to dealership:
+POST 
+/api/dealerships/{dealershipId}/cars
+This endpoint should add a new car to the specified dealership.
+To view deals provided by dealership:
+GET 
+/api/dealerships/{dealershipId}/deals
+This endpoint should return a list of all deals provided by the specified dealership.
+To add deals to dealership:
+POST 
+/api/dealerships/{dealershipId}/deals
+This endpoint should add a new deal to the specified dealership.
+To view all vehicles dealership has sold:
+GET 
+/api/dealerships/{dealershipId}/vehicles
+This endpoint should return a list of all vehicles sold by the specified dealership.
+To add new vehicle to the list of sold vehicles after a deal is made:
+POST 
+/api/deals/{dealId}/add-vehicle
+This endpoint should update the deal with the specified ID to reflect that a new vehicle has been sold.
+Post requests should be able to handle multipart/form-data:
+You can use the 
+multer
+ middleware to handle 
+multipart/form-data
+ requests in Node.js.
+Implement asynchronous error handling using promises:
+You can use promises to handle asynchronous operations in Node.js.
